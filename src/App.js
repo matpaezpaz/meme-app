@@ -4,6 +4,7 @@ import Header from './Components/Header';
 import MemeForm from './Components/MemeForm';
 import { localStorageService } from './Utils/localStorageService';
 import { MemePersistence } from './Utils/MemePersistence';
+import CardSection from './Containers/CardSection';
 
 const localStorage = new localStorageService("memes");
 const persistence = new MemePersistence(localStorage);
@@ -13,7 +14,7 @@ class App extends React.Component {
     super();
     this.state = {
       title : "",
-      url : "",
+      img : "",
       memes : []
     }
   }
@@ -34,7 +35,13 @@ class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     event.stopPropagation();
-
+    let meme = { title: this.state.title, img: this.state.img };
+    persistence.saveMeme(meme);
+    this.setState({
+      memes: [...this.state.memes,meme],
+      title: '',
+      img: ''
+    });
   }
 
   render() {
@@ -43,7 +50,8 @@ class App extends React.Component {
         <div className="container-header">
           <Header title="Dankest Memes" />
         </div>
-        <MemeForm onChangeInput={ (event)=>this.handleChangeInput(event) } onSubmit={ (event)=>this.handleSubmit(event) } />
+        <MemeForm data={ ({title:this.state.title,img:this.state.img}) } onChangeInput={ (event)=>this.handleChangeInput(event) } onSubmit={ (event)=>this.handleSubmit(event) } />
+        <CardSection data={this.state.memes} />
       </div>
     );
   }
