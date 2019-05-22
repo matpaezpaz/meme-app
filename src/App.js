@@ -2,6 +2,11 @@ import React from 'react';
 import './App.scss';
 import Header from './Components/Header';
 import MemeForm from './Components/MemeForm';
+import { localStorageService } from './Utils/localStorageService';
+import { MemePersistence } from './Utils/MemePersistence';
+
+const localStorage = new localStorageService("memes");
+const persistence = new MemePersistence(localStorage);
 
 class App extends React.Component {
   constructor() {
@@ -13,6 +18,13 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+    const memes = persistence.getMemes();
+    this.setState({
+      memes: memes
+    });
+  }
+
   handleChangeInput(event) {
     const {name, value} = event.target;
     this.setState({
@@ -20,6 +32,8 @@ class App extends React.Component {
     });
   }
   handleSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
 
   }
 
