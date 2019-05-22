@@ -13,7 +13,7 @@ const CardSection = (props) => {
 
     return (
         <section className="card-section">
-            <h2> Mis memes favoritos </h2>
+            <h2> My Dankest Memes </h2>
             <div className="card-list">
                 {
                     cards

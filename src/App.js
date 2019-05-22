@@ -48,7 +48,7 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <div className="container-header">
-          <Header title="Dankest Memes" />
+          <Header title="Meme App" />
         </div>
         <MemeForm data={ ({title:this.state.title,img:this.state.img}) } onChangeInput={ (event)=>this.handleChangeInput(event) } onSubmit={ (event)=>this.handleSubmit(event) } />
         <CardSection data={this.state.memes} />

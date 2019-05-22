@@ -1,0 +1,10 @@
+.card-section {
+    margin: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content:center;
+    .card-list {
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
