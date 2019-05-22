@@ -1,0 +1,21 @@
+@import '../../index.scss';
+
+.form {
+    display: flex;
+    justify-content: center;
+    &__label{
+        padding: 1rem;
+        input {
+            margin-left: 5px;
+            border-radius: 5px;
+            padding: .5rem;
+            @extend .form-control
+        }
+    }
+    input[type=submit] {
+        padding: .5rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+        @extend .btn-blue
+    }
+}

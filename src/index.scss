@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.form-control {
+  border: solid #EEEEEE 1px;
+}
+.btn {
+  border-radius: 5px;
+  border: solid 1px ;
+}
+.btn-blue {
+  @extend .btn;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  background-color: rgb(62, 106, 187);
+  border-color: rgb(64, 61, 255);
+
+}
