@@ -1,6 +1,15 @@
 .card {
-    border: solid 1px black;
+    background-color: transparentize($color: gray, $amount: 0.9);
     margin: .5rem;
     border-radius: 5px;
     padding: 1rem;
+    box-shadow: 10px 10px 31px -21px rgba(0,0,0,0.75);
+    transition: .2s;
+    h1{
+        margin-top: 0px;
+        margin-bottom: .5rem;
+    }
+    &:hover{
+        box-shadow: 10px 10px 31px -11px rgba(0,0,0,0.75);
+    }
 }
